@@ -11,6 +11,11 @@
       "type": "string",
       "description": "Type of the event, e.g., 'PLUGIN_RUN', 'USER_ACTION'"
     },
+    "version": {
+      "type": "string",
+      "description": "Version of the event schema",
+      "default": "1.0"
+    },
     "source": {
       "type": "string",
       "description": "Origin or source of the event, typically the service name"
@@ -30,5 +35,12 @@
       "description": "ID of the user initiating the event"
     }
   },
-  "required": ["event_id", "event_type", "timestamp", "payload", "source"]
+  "required": [
+    "event_id",
+    "event_type",
+    "version",
+    "timestamp",
+    "payload",
+    "source"
+  ]
 }

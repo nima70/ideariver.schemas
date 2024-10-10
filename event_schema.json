@@ -1,17 +1,30 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Event Schema",
+  "title": "Event Sourcing Schema",
   "type": "object",
   "properties": {
     "event_id": {
       "type": "string",
       "description": "Unique identifier for the event"
     },
+    "aggregate_id": {
+      "type": "string",
+      "description": "ID of the entity (aggregate) that this event relates to"
+    },
+    "aggregate_type": {
+      "type": "string",
+      "description": "Type of the aggregate, e.g., 'plugin', 'user', etc."
+    },
+    "version": {
+      "type": "integer",
+      "description": "Version of the aggregate's state after this event",
+      "default": 1
+    },
     "event_type": {
       "type": "string",
       "description": "Type of the event, e.g., 'PLUGIN_RUN', 'USER_ACTION'"
     },
-    "version": {
+    "event_schema_version": {
       "type": "string",
       "description": "Version of the event schema",
       "default": "1.0"
@@ -37,10 +50,12 @@
   },
   "required": [
     "event_id",
-    "event_type",
+    "aggregate_id",
     "version",
+    "event_type",
     "timestamp",
     "payload",
-    "source"
+    "source",
+    "event_schema_version"
   ]
 }

@@ -1,0 +1,81 @@
+openapi: 3.0.0
+info:
+  title: Plugin Metadata API
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /plugin-metadata:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PluginMetadata'
+          description: Returns plugin metadata
+      summary: Get plugin metadata
+components:
+  schemas:
+    PluginMetadata:
+      example:
+        executableFile: executableFile
+        outputs:
+          key: ""
+        author:
+          name: name
+          email: email
+        inputs:
+          key: ""
+        description: description
+        nameTag: nameTag
+        version: version
+      properties:
+        nameTag:
+          description: Unique identifier for the plugin
+          type: string
+        version:
+          description: "Version of the plugin, following semantic versioning"
+          type: string
+        executableFile:
+          description: Path to the main executable file for the plugin
+          type: string
+        author:
+          $ref: '#/components/schemas/PluginMetadata_author'
+        inputs:
+          additionalProperties: true
+          description: Input validation schema for the plugin
+          type: object
+        outputs:
+          additionalProperties: true
+          description: Output structure for the plugin
+          type: object
+        description:
+          description: Brief description of the plugin's functionality
+          type: string
+      required:
+      - author
+      - description
+      - executableFile
+      - inputs
+      - nameTag
+      - version
+      type: object
+    PluginMetadata_author:
+      description: Information about the plugin's author
+      example:
+        name: name
+        email: email
+      properties:
+        name:
+          description: Author's full name
+          type: string
+        email:
+          description: Author's email address
+          format: email
+          type: string
+      required:
+      - email
+      - name
+      type: object
+

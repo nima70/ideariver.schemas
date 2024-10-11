@@ -4,7 +4,12 @@
   "description": "ideariver.schemas is a centralized repository for managing language-independent event schemas used throughout the ideariver ecosystem. These schemas help in standardizing communication between different services in a distributed, event-driven architecture.",
   "main": "index.js",
   "scripts": {
-    "start": "node generate_code.js"
+    "start": "node generate_code.js",
+    "generate:typescript": "node generate_code.js typescript",
+    "generate:python": "node generate_code.js python",
+    "generate:csharp": "node generate_code.js csharp",
+    "generate:cpp": "node generate_code.js cpp",
+    "generate:all": "node generate_code.js all"
   },
   "author": "Nima Shokouhfar",
   "license": "MIT",

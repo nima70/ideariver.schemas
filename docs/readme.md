@@ -1,4 +1,4 @@
-## Scripts
+## Scripts for generating code
 To generate TypeScript:
 
 ```bash
@@ -22,9 +22,7 @@ To generate for all (default):
 ```bash
 npm start
 ```
-
-
-
+---
 
 ## Option 1: Git Submodules
 

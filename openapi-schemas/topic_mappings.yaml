@@ -11,10 +11,10 @@ components:
         topics:
           type: object
           properties:
-            TASK_QUEUE:
+            taskQueue:
               type: string
               description: "The queue where tasks are submitted"
-            RESPONSE_QUEUE:
+            responseQueue:
               type: string
               description: "The queue where responses to tasks are sent"
       required:

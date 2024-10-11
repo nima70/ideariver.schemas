@@ -57,27 +57,27 @@ public:
     /// <summary>
     /// The queue where tasks are submitted
     /// </summary>
-    utility::string_t getTASKQUEUE() const;
-    bool tASKQUEUEIsSet() const;
-    void unsetTASK_QUEUE();
+    utility::string_t getTaskQueue() const;
+    bool taskQueueIsSet() const;
+    void unsetTaskQueue();
 
-    void setTASKQUEUE(const utility::string_t& value);
+    void setTaskQueue(const utility::string_t& value);
 
     /// <summary>
     /// The queue where responses to tasks are sent
     /// </summary>
-    utility::string_t getRESPONSEQUEUE() const;
-    bool rESPONSEQUEUEIsSet() const;
-    void unsetRESPONSE_QUEUE();
+    utility::string_t getResponseQueue() const;
+    bool responseQueueIsSet() const;
+    void unsetResponseQueue();
 
-    void setRESPONSEQUEUE(const utility::string_t& value);
+    void setResponseQueue(const utility::string_t& value);
 
 
 protected:
-    utility::string_t m_TASK_QUEUE;
-    bool m_TASK_QUEUEIsSet;
-    utility::string_t m_RESPONSE_QUEUE;
-    bool m_RESPONSE_QUEUEIsSet;
+    utility::string_t m_TaskQueue;
+    bool m_TaskQueueIsSet;
+    utility::string_t m_ResponseQueue;
+    bool m_ResponseQueueIsSet;
 };
 
 

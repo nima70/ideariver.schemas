@@ -34,27 +34,27 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TopicMappingTopics" /> class.
         /// </summary>
-        /// <param name="tASKQUEUE">The queue where tasks are submitted.</param>
-        /// <param name="rESPONSEQUEUE">The queue where responses to tasks are sent.</param>
-        public TopicMappingTopics(string tASKQUEUE = default(string), string rESPONSEQUEUE = default(string))
+        /// <param name="taskQueue">The queue where tasks are submitted.</param>
+        /// <param name="responseQueue">The queue where responses to tasks are sent.</param>
+        public TopicMappingTopics(string taskQueue = default(string), string responseQueue = default(string))
         {
-            this.TASK_QUEUE = tASKQUEUE;
-            this.RESPONSE_QUEUE = rESPONSEQUEUE;
+            this.TaskQueue = taskQueue;
+            this.ResponseQueue = responseQueue;
         }
 
         /// <summary>
         /// The queue where tasks are submitted
         /// </summary>
         /// <value>The queue where tasks are submitted</value>
-        [DataMember(Name = "TASK_QUEUE", EmitDefaultValue = false)]
-        public string TASK_QUEUE { get; set; }
+        [DataMember(Name = "taskQueue", EmitDefaultValue = false)]
+        public string TaskQueue { get; set; }
 
         /// <summary>
         /// The queue where responses to tasks are sent
         /// </summary>
         /// <value>The queue where responses to tasks are sent</value>
-        [DataMember(Name = "RESPONSE_QUEUE", EmitDefaultValue = false)]
-        public string RESPONSE_QUEUE { get; set; }
+        [DataMember(Name = "responseQueue", EmitDefaultValue = false)]
+        public string ResponseQueue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,8 +64,8 @@ namespace Org.OpenAPITools.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TopicMappingTopics {\n");
-            sb.Append("  TASK_QUEUE: ").Append(TASK_QUEUE).Append("\n");
-            sb.Append("  RESPONSE_QUEUE: ").Append(RESPONSE_QUEUE).Append("\n");
+            sb.Append("  TaskQueue: ").Append(TaskQueue).Append("\n");
+            sb.Append("  ResponseQueue: ").Append(ResponseQueue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

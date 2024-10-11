@@ -24,13 +24,13 @@ export interface TopicMappingTopics {
      * @type {string}
      * @memberof TopicMappingTopics
      */
-    tASKQUEUE?: string;
+    taskQueue?: string;
     /**
      * The queue where responses to tasks are sent
      * @type {string}
      * @memberof TopicMappingTopics
      */
-    rESPONSEQUEUE?: string;
+    responseQueue?: string;
 }
 
 /**
@@ -50,8 +50,8 @@ export function TopicMappingTopicsFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'tASKQUEUE': json['TASK_QUEUE'] == null ? undefined : json['TASK_QUEUE'],
-        'rESPONSEQUEUE': json['RESPONSE_QUEUE'] == null ? undefined : json['RESPONSE_QUEUE'],
+        'taskQueue': json['taskQueue'] == null ? undefined : json['taskQueue'],
+        'responseQueue': json['responseQueue'] == null ? undefined : json['responseQueue'],
     };
 }
 
@@ -66,8 +66,8 @@ export function TopicMappingTopicsFromJSONTyped(json: any, ignoreDiscriminator: 
 
     return {
         
-        'TASK_QUEUE': value['tASKQUEUE'],
-        'RESPONSE_QUEUE': value['rESPONSEQUEUE'],
+        'taskQueue': value['taskQueue'],
+        'responseQueue': value['responseQueue'],
     };
 }
 

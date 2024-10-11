@@ -22,10 +22,10 @@ namespace model {
 
 TopicMapping_topics::TopicMapping_topics()
 {
-    m_TASK_QUEUE = utility::conversions::to_string_t("");
-    m_TASK_QUEUEIsSet = false;
-    m_RESPONSE_QUEUE = utility::conversions::to_string_t("");
-    m_RESPONSE_QUEUEIsSet = false;
+    m_TaskQueue = utility::conversions::to_string_t("");
+    m_TaskQueueIsSet = false;
+    m_ResponseQueue = utility::conversions::to_string_t("");
+    m_ResponseQueueIsSet = false;
 }
 
 TopicMapping_topics::~TopicMapping_topics()
@@ -42,13 +42,13 @@ web::json::value TopicMapping_topics::toJson() const
 
     web::json::value val = web::json::value::object();
     
-    if(m_TASK_QUEUEIsSet)
+    if(m_TaskQueueIsSet)
     {
-        val[utility::conversions::to_string_t(U("TASK_QUEUE"))] = ModelBase::toJson(m_TASK_QUEUE);
+        val[utility::conversions::to_string_t(U("taskQueue"))] = ModelBase::toJson(m_TaskQueue);
     }
-    if(m_RESPONSE_QUEUEIsSet)
+    if(m_ResponseQueueIsSet)
     {
-        val[utility::conversions::to_string_t(U("RESPONSE_QUEUE"))] = ModelBase::toJson(m_RESPONSE_QUEUE);
+        val[utility::conversions::to_string_t(U("responseQueue"))] = ModelBase::toJson(m_ResponseQueue);
     }
 
     return val;
@@ -58,24 +58,24 @@ bool TopicMapping_topics::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t(U("TASK_QUEUE"))))
+    if(val.has_field(utility::conversions::to_string_t(U("taskQueue"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("TASK_QUEUE")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("taskQueue")));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_setTASKQUEUE;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setTASKQUEUE);
-            setTASKQUEUE(refVal_setTASKQUEUE);
+            utility::string_t refVal_setTaskQueue;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTaskQueue);
+            setTaskQueue(refVal_setTaskQueue);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("RESPONSE_QUEUE"))))
+    if(val.has_field(utility::conversions::to_string_t(U("responseQueue"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("RESPONSE_QUEUE")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("responseQueue")));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_setRESPONSEQUEUE;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setRESPONSEQUEUE);
-            setRESPONSEQUEUE(refVal_setRESPONSEQUEUE);
+            utility::string_t refVal_setResponseQueue;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setResponseQueue);
+            setResponseQueue(refVal_setResponseQueue);
         }
     }
     return ok;
@@ -88,13 +88,13 @@ void TopicMapping_topics::toMultipart(std::shared_ptr<MultipartFormData> multipa
     {
         namePrefix += utility::conversions::to_string_t(U("."));
     }
-    if(m_TASK_QUEUEIsSet)
+    if(m_TaskQueueIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("TASK_QUEUE")), m_TASK_QUEUE));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("taskQueue")), m_TaskQueue));
     }
-    if(m_RESPONSE_QUEUEIsSet)
+    if(m_ResponseQueueIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("RESPONSE_QUEUE")), m_RESPONSE_QUEUE));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("responseQueue")), m_ResponseQueue));
     }
 }
 
@@ -107,60 +107,60 @@ bool TopicMapping_topics::fromMultiPart(std::shared_ptr<MultipartFormData> multi
         namePrefix += utility::conversions::to_string_t(U("."));
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t(U("TASK_QUEUE"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(U("taskQueue"))))
     {
-        utility::string_t refVal_setTASKQUEUE;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("TASK_QUEUE"))), refVal_setTASKQUEUE );
-        setTASKQUEUE(refVal_setTASKQUEUE);
+        utility::string_t refVal_setTaskQueue;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("taskQueue"))), refVal_setTaskQueue );
+        setTaskQueue(refVal_setTaskQueue);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("RESPONSE_QUEUE"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(U("responseQueue"))))
     {
-        utility::string_t refVal_setRESPONSEQUEUE;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("RESPONSE_QUEUE"))), refVal_setRESPONSEQUEUE );
-        setRESPONSEQUEUE(refVal_setRESPONSEQUEUE);
+        utility::string_t refVal_setResponseQueue;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("responseQueue"))), refVal_setResponseQueue );
+        setResponseQueue(refVal_setResponseQueue);
     }
     return ok;
 }
 
-utility::string_t TopicMapping_topics::getTASKQUEUE() const
+utility::string_t TopicMapping_topics::getTaskQueue() const
 {
-    return m_TASK_QUEUE;
+    return m_TaskQueue;
 }
 
-void TopicMapping_topics::setTASKQUEUE(const utility::string_t& value)
+void TopicMapping_topics::setTaskQueue(const utility::string_t& value)
 {
-    m_TASK_QUEUE = value;
-    m_TASK_QUEUEIsSet = true;
+    m_TaskQueue = value;
+    m_TaskQueueIsSet = true;
 }
 
-bool TopicMapping_topics::tASKQUEUEIsSet() const
+bool TopicMapping_topics::taskQueueIsSet() const
 {
-    return m_TASK_QUEUEIsSet;
+    return m_TaskQueueIsSet;
 }
 
-void TopicMapping_topics::unsetTASK_QUEUE()
+void TopicMapping_topics::unsetTaskQueue()
 {
-    m_TASK_QUEUEIsSet = false;
+    m_TaskQueueIsSet = false;
 }
-utility::string_t TopicMapping_topics::getRESPONSEQUEUE() const
+utility::string_t TopicMapping_topics::getResponseQueue() const
 {
-    return m_RESPONSE_QUEUE;
-}
-
-void TopicMapping_topics::setRESPONSEQUEUE(const utility::string_t& value)
-{
-    m_RESPONSE_QUEUE = value;
-    m_RESPONSE_QUEUEIsSet = true;
+    return m_ResponseQueue;
 }
 
-bool TopicMapping_topics::rESPONSEQUEUEIsSet() const
+void TopicMapping_topics::setResponseQueue(const utility::string_t& value)
 {
-    return m_RESPONSE_QUEUEIsSet;
+    m_ResponseQueue = value;
+    m_ResponseQueueIsSet = true;
 }
 
-void TopicMapping_topics::unsetRESPONSE_QUEUE()
+bool TopicMapping_topics::responseQueueIsSet() const
 {
-    m_RESPONSE_QUEUEIsSet = false;
+    return m_ResponseQueueIsSet;
+}
+
+void TopicMapping_topics::unsetResponseQueue()
+{
+    m_ResponseQueueIsSet = false;
 }
 }
 }

@@ -26,9 +26,9 @@ class TopicMappingTopics(BaseModel):
     """
     TopicMappingTopics
     """ # noqa: E501
-    task_queue: Optional[StrictStr] = Field(default=None, description="The queue where tasks are submitted", alias="TASK_QUEUE")
-    response_queue: Optional[StrictStr] = Field(default=None, description="The queue where responses to tasks are sent", alias="RESPONSE_QUEUE")
-    __properties: ClassVar[List[str]] = ["TASK_QUEUE", "RESPONSE_QUEUE"]
+    task_queue: Optional[StrictStr] = Field(default=None, description="The queue where tasks are submitted", alias="taskQueue")
+    response_queue: Optional[StrictStr] = Field(default=None, description="The queue where responses to tasks are sent", alias="responseQueue")
+    __properties: ClassVar[List[str]] = ["taskQueue", "responseQueue"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,8 +81,8 @@ class TopicMappingTopics(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "TASK_QUEUE": obj.get("TASK_QUEUE"),
-            "RESPONSE_QUEUE": obj.get("RESPONSE_QUEUE")
+            "taskQueue": obj.get("taskQueue"),
+            "responseQueue": obj.get("responseQueue")
         })
         return _obj
 

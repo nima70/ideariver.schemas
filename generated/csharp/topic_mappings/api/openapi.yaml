@@ -15,10 +15,10 @@ components:
       type: object
     TopicMapping_topics:
       properties:
-        TASK_QUEUE:
+        taskQueue:
           description: The queue where tasks are submitted
           type: string
-        RESPONSE_QUEUE:
+        responseQueue:
           description: The queue where responses to tasks are sent
           type: string
       type: object

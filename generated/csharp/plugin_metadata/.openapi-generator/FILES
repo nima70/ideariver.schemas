@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 Org.OpenAPITools.sln
 README.md
 api/openapi.yaml
@@ -8,9 +7,6 @@ docs/DefaultApi.md
 docs/PluginMetadata.md
 docs/PluginMetadataAuthor.md
 git_push.sh
-src/Org.OpenAPITools.Test/Api/DefaultApiTests.cs
-src/Org.OpenAPITools.Test/Model/PluginMetadataAuthorTests.cs
-src/Org.OpenAPITools.Test/Model/PluginMetadataTests.cs
 src/Org.OpenAPITools.Test/Org.OpenAPITools.Test.csproj
 src/Org.OpenAPITools/Api/DefaultApi.cs
 src/Org.OpenAPITools/Client/ApiClient.cs

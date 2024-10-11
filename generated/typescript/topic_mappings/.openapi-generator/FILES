@@ -1,0 +1,6 @@
+.openapi-generator-ignore
+index.ts
+models/TopicMapping.ts
+models/TopicMappingTopics.ts
+models/index.ts
+runtime.ts

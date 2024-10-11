@@ -1,15 +1,30 @@
-## To run the entire thing
+## Scripts
+To generate TypeScript:
 
 ```bash
-node generate_code.js
+npm start --typescript
 ```
-
-## To run Manually
+To generate Python:
 
 ```bash
-openapi-generator-cli generate -i event_sourcing.yaml -g typescript-fetch -o ./typescript-client --skip-validate-spec
-
+npm start --python
 ```
+To generate C#:
+
+```bash
+npm start --csharp
+```
+To generate C++:
+```bash
+npm start --cpp
+```
+To generate for all (default):
+```bash
+npm start
+```
+
+
+
 
 ## Option 1: Git Submodules
 

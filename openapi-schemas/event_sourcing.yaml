@@ -18,7 +18,7 @@ components:
           type: string
           description: "Type of the aggregate, e.g., 'plugin', 'user', etc."
         version:
-          type: integer
+          type: number
           description: "Version of the aggregate's state after this event"
           default: 1
         event_type:
@@ -39,6 +39,7 @@ components:
           type: object
           description: "Data related to the event, this varies depending on event type"
           additionalProperties: true
+          nullable: true  # Allows null or undefined
         user_id:
           type: string
           description: "ID of the user initiating the event"
@@ -48,6 +49,5 @@ components:
         - version
         - event_type
         - timestamp
-        - payload
         - source
         - event_schema_version

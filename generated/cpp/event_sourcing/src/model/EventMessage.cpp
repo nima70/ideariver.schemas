@@ -28,7 +28,7 @@ EventMessage::EventMessage()
     m_Aggregate_idIsSet = false;
     m_Aggregate_type = utility::conversions::to_string_t("");
     m_Aggregate_typeIsSet = false;
-    m_Version = 0;
+    m_Version = 0.0;
     m_VersionIsSet = false;
     m_Event_type = utility::conversions::to_string_t("");
     m_Event_typeIsSet = false;
@@ -140,7 +140,7 @@ bool EventMessage::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("version")));
         if(!fieldValue.is_null())
         {
-            int32_t refVal_setVersion;
+            double refVal_setVersion;
             ok &= ModelBase::fromJson(fieldValue, refVal_setVersion);
             setVersion(refVal_setVersion);
         }
@@ -286,7 +286,7 @@ bool EventMessage::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, c
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("version"))))
     {
-        int32_t refVal_setVersion;
+        double refVal_setVersion;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("version"))), refVal_setVersion );
         setVersion(refVal_setVersion);
     }
@@ -389,12 +389,12 @@ void EventMessage::unsetAggregate_type()
 {
     m_Aggregate_typeIsSet = false;
 }
-int32_t EventMessage::getVersion() const
+double EventMessage::getVersion() const
 {
     return m_Version;
 }
 
-void EventMessage::setVersion(int32_t value)
+void EventMessage::setVersion(double value)
 {
     m_Version = value;
     m_VersionIsSet = true;

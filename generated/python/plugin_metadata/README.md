@@ -67,14 +67,13 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.DefaultApi(api_client)
+    id = 'id_example' # str | 
 
     try:
-        # Get plugin metadata
-        api_response = api_instance.plugin_metadata_get()
-        print("The response of DefaultApi->plugin_metadata_get:\n")
-        pprint(api_response)
+        # Delete a plugin by ID
+        api_instance.plugins_id_delete(id)
     except ApiException as e:
-        print("Exception when calling DefaultApi->plugin_metadata_get: %s\n" % e)
+        print("Exception when calling DefaultApi->plugins_id_delete: %s\n" % e)
 
 ```
 
@@ -84,13 +83,22 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**plugin_metadata_get**](docs/DefaultApi.md#plugin_metadata_get) | **GET** /plugin-metadata | Get plugin metadata
+*DefaultApi* | [**plugins_id_delete**](docs/DefaultApi.md#plugins_id_delete) | **DELETE** /plugins/{id} | Delete a plugin by ID
+*DefaultApi* | [**plugins_id_get**](docs/DefaultApi.md#plugins_id_get) | **GET** /plugins/{id} | Get plugin metadata by ID
+*DefaultApi* | [**plugins_id_images_filename_delete**](docs/DefaultApi.md#plugins_id_images_filename_delete) | **DELETE** /plugins/{id}/images/{filename} | Delete a specific image of a plugin
+*DefaultApi* | [**plugins_id_images_get**](docs/DefaultApi.md#plugins_id_images_get) | **GET** /plugins/{id}/images | Get all images of a plugin
+*DefaultApi* | [**plugins_id_images_post**](docs/DefaultApi.md#plugins_id_images_post) | **POST** /plugins/{id}/images | Upload multiple images for a plugin
+*DefaultApi* | [**plugins_id_images_thumbnail_put**](docs/DefaultApi.md#plugins_id_images_thumbnail_put) | **PUT** /plugins/{id}/images/thumbnail | Set or update the thumbnail image for a plugin
+*DefaultApi* | [**plugins_id_put**](docs/DefaultApi.md#plugins_id_put) | **PUT** /plugins/{id} | Update plugin metadata
+*DefaultApi* | [**plugins_post**](docs/DefaultApi.md#plugins_post) | **POST** /plugins | Upload a new plugin
 
 
 ## Documentation For Models
 
  - [PluginMetadata](docs/PluginMetadata.md)
  - [PluginMetadataAuthor](docs/PluginMetadataAuthor.md)
+ - [PluginsIdImagesGet200Response](docs/PluginsIdImagesGet200Response.md)
+ - [PluginsIdImagesThumbnailPutRequest](docs/PluginsIdImagesThumbnailPutRequest.md)
 
 
 <a id="documentation-for-authorization"></a>

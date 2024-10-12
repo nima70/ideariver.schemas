@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **event_id** | **str** | Unique identifier for the event | 
 **aggregate_id** | **str** | ID of the entity (aggregate) that this event relates to | 
 **aggregate_type** | **str** | Type of the aggregate, e.g., &#39;plugin&#39;, &#39;user&#39;, etc. | [optional] 
-**version** | **int** | Version of the aggregate&#39;s state after this event | [default to 1]
+**version** | **float** | Version of the aggregate&#39;s state after this event | [default to 1]
 **event_type** | **str** | Type of the event, e.g., &#39;PLUGIN_RUN&#39;, &#39;USER_ACTION&#39; | 
 **event_schema_version** | **str** | Version of the event schema | [default to '1.0']
 **source** | **str** | Origin or source of the event, typically the service name | 
 **timestamp** | **datetime** | ISO 8601 timestamp for when the event occurred | 
-**payload** | **Dict[str, object]** | Data related to the event, this varies depending on event type | 
+**payload** | **Dict[str, object]** | Data related to the event, this varies depending on event type | [optional] 
 **user_id** | **str** | ID of the user initiating the event | [optional] 
 
 ## Example

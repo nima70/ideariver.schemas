@@ -18,8 +18,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,12 +30,12 @@ class EventMessage(BaseModel):
     event_id: StrictStr = Field(description="Unique identifier for the event")
     aggregate_id: StrictStr = Field(description="ID of the entity (aggregate) that this event relates to")
     aggregate_type: Optional[StrictStr] = Field(default=None, description="Type of the aggregate, e.g., 'plugin', 'user', etc.")
-    version: StrictInt = Field(description="Version of the aggregate's state after this event")
+    version: Union[StrictFloat, StrictInt] = Field(description="Version of the aggregate's state after this event")
     event_type: StrictStr = Field(description="Type of the event, e.g., 'PLUGIN_RUN', 'USER_ACTION'")
     event_schema_version: StrictStr = Field(description="Version of the event schema")
     source: StrictStr = Field(description="Origin or source of the event, typically the service name")
     timestamp: datetime = Field(description="ISO 8601 timestamp for when the event occurred")
-    payload: Dict[str, Any] = Field(description="Data related to the event, this varies depending on event type")
+    payload: Optional[Dict[str, Any]] = Field(default=None, description="Data related to the event, this varies depending on event type")
     user_id: Optional[StrictStr] = Field(default=None, description="ID of the user initiating the event")
     __properties: ClassVar[List[str]] = ["event_id", "aggregate_id", "aggregate_type", "version", "event_type", "event_schema_version", "source", "timestamp", "payload", "user_id"]
 
@@ -78,6 +78,11 @@ class EventMessage(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if payload (nullable) is None
+        # and model_fields_set contains the field
+        if self.payload is None and "payload" in self.model_fields_set:
+            _dict['payload'] = None
+
         return _dict
 
     @classmethod

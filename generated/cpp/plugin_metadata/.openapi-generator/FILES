@@ -16,6 +16,8 @@ include/CppRestOpenAPIClient/Object.h
 include/CppRestOpenAPIClient/api/DefaultApi.h
 include/CppRestOpenAPIClient/model/PluginMetadata.h
 include/CppRestOpenAPIClient/model/PluginMetadata_author.h
+include/CppRestOpenAPIClient/model/_plugins__id__images_get_200_response.h
+include/CppRestOpenAPIClient/model/_plugins__id__images_thumbnail_put_request.h
 src/AnyType.cpp
 src/ApiClient.cpp
 src/ApiConfiguration.cpp
@@ -28,3 +30,5 @@ src/Object.cpp
 src/api/DefaultApi.cpp
 src/model/PluginMetadata.cpp
 src/model/PluginMetadata_author.cpp
+src/model/_plugins__id__images_get_200_response.cpp
+src/model/_plugins__id__images_thumbnail_put_request.cpp

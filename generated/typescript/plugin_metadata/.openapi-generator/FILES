@@ -3,5 +3,7 @@ apis/index.ts
 index.ts
 models/PluginMetadata.ts
 models/PluginMetadataAuthor.ts
+models/PluginsIdImagesGet200Response.ts
+models/PluginsIdImagesThumbnailPutRequest.ts
 models/index.ts
 runtime.ts

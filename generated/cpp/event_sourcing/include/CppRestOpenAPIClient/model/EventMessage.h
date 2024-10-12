@@ -86,11 +86,11 @@ public:
     /// <summary>
     /// Version of the aggregate&#39;s state after this event
     /// </summary>
-    int32_t getVersion() const;
+    double getVersion() const;
     bool versionIsSet() const;
     void unsetVersion();
 
-    void setVersion(int32_t value);
+    void setVersion(double value);
 
     /// <summary>
     /// Type of the event, e.g., &#39;PLUGIN_RUN&#39;, &#39;USER_ACTION&#39;
@@ -154,7 +154,7 @@ protected:
     bool m_Aggregate_idIsSet;
     utility::string_t m_Aggregate_type;
     bool m_Aggregate_typeIsSet;
-    int32_t m_Version;
+    double m_Version;
     bool m_VersionIsSet;
     utility::string_t m_Event_type;
     bool m_Event_typeIsSet;

@@ -5,13 +5,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name_tag** | **str** | Unique identifier for the plugin | 
+**id** | **str** | Unique identifier for the plugin | 
 **version** | **str** | Version of the plugin, following semantic versioning | 
 **executable_file** | **str** | Path to the main executable file for the plugin | 
 **author** | [**PluginMetadataAuthor**](PluginMetadataAuthor.md) |  | 
 **inputs** | **Dict[str, object]** | Input validation schema for the plugin | 
-**outputs** | **Dict[str, object]** | Output structure for the plugin | [optional] 
+**outputs** | **Dict[str, object]** | Expected output from the plugin | [optional] 
 **description** | **str** | Brief description of the plugin&#39;s functionality | 
+**status** | **str** | The current status of the plugin | 
+**created_at** | **datetime** | Timestamp when the plugin was first created | 
+**updated_at** | **datetime** | Timestamp when the plugin was last updated | 
+**tags** | **List[str]** | Tags associated with the plugin for easy categorization | [optional] 
+**thumbnail_url** | **str** | URL of the thumbnail image | [optional] 
+**image_urls** | **List[str]** | List of URLs for additional images | [optional] 
 
 ## Example
 

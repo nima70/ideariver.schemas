@@ -42,14 +42,14 @@ namespace Org.OpenAPITools.Model
         /// <param name="eventId">Unique identifier for the event (required).</param>
         /// <param name="aggregateId">ID of the entity (aggregate) that this event relates to (required).</param>
         /// <param name="aggregateType">Type of the aggregate, e.g., &#39;plugin&#39;, &#39;user&#39;, etc..</param>
-        /// <param name="varVersion">Version of the aggregate&#39;s state after this event (required) (default to 1).</param>
+        /// <param name="varVersion">Version of the aggregate&#39;s state after this event (required) (default to 1M).</param>
         /// <param name="eventType">Type of the event, e.g., &#39;PLUGIN_RUN&#39;, &#39;USER_ACTION&#39; (required).</param>
         /// <param name="eventSchemaVersion">Version of the event schema (required) (default to &quot;1.0&quot;).</param>
         /// <param name="source">Origin or source of the event, typically the service name (required).</param>
         /// <param name="timestamp">ISO 8601 timestamp for when the event occurred (required).</param>
-        /// <param name="payload">Data related to the event, this varies depending on event type (required).</param>
+        /// <param name="payload">Data related to the event, this varies depending on event type.</param>
         /// <param name="userId">ID of the user initiating the event.</param>
-        public EventMessage(string eventId = default(string), string aggregateId = default(string), string aggregateType = default(string), int varVersion = 1, string eventType = default(string), string eventSchemaVersion = @"1.0", string source = default(string), DateTime timestamp = default(DateTime), Dictionary<string, Object> payload = default(Dictionary<string, Object>), string userId = default(string))
+        public EventMessage(string eventId = default(string), string aggregateId = default(string), string aggregateType = default(string), decimal varVersion = 1M, string eventType = default(string), string eventSchemaVersion = @"1.0", string source = default(string), DateTime timestamp = default(DateTime), Dictionary<string, Object> payload = default(Dictionary<string, Object>), string userId = default(string))
         {
             // to ensure "eventId" is required (not null)
             if (eventId == null)
@@ -83,13 +83,8 @@ namespace Org.OpenAPITools.Model
             }
             this.Source = source;
             this.Timestamp = timestamp;
-            // to ensure "payload" is required (not null)
-            if (payload == null)
-            {
-                throw new ArgumentNullException("payload is a required property for EventMessage and cannot be null");
-            }
-            this.Payload = payload;
             this.AggregateType = aggregateType;
+            this.Payload = payload;
             this.UserId = userId;
         }
 
@@ -119,7 +114,7 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <value>Version of the aggregate&#39;s state after this event</value>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public int VarVersion { get; set; }
+        public decimal VarVersion { get; set; }
 
         /// <summary>
         /// Type of the event, e.g., &#39;PLUGIN_RUN&#39;, &#39;USER_ACTION&#39;
@@ -153,7 +148,7 @@ namespace Org.OpenAPITools.Model
         /// Data related to the event, this varies depending on event type
         /// </summary>
         /// <value>Data related to the event, this varies depending on event type</value>
-        [DataMember(Name = "payload", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "payload", EmitDefaultValue = true)]
         public Dictionary<string, Object> Payload { get; set; }
 
         /// <summary>

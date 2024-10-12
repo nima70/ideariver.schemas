@@ -72,7 +72,7 @@ export interface EventMessage {
      * @type {{ [key: string]: any; }}
      * @memberof EventMessage
      */
-    payload: { [key: string]: any; };
+    payload?: { [key: string]: any; } | null;
     /**
      * ID of the user initiating the event
      * @type {string}
@@ -92,7 +92,6 @@ export function instanceOfEventMessage(value: object): value is EventMessage {
     if (!('eventSchemaVersion' in value) || value['eventSchemaVersion'] === undefined) return false;
     if (!('source' in value) || value['source'] === undefined) return false;
     if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
-    if (!('payload' in value) || value['payload'] === undefined) return false;
     return true;
 }
 
@@ -114,7 +113,7 @@ export function EventMessageFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'eventSchemaVersion': json['event_schema_version'],
         'source': json['source'],
         'timestamp': (new Date(json['timestamp'])),
-        'payload': json['payload'],
+        'payload': json['payload'] == null ? undefined : json['payload'],
         'userId': json['user_id'] == null ? undefined : json['user_id'],
     };
 }

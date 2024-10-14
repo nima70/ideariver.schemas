@@ -7,6 +7,12 @@ components:
           type: string
           format: uuid
           description: "Unique identifier for the plugin"
+        title:
+          type: string
+          description: "The name or title of the plugin"
+        nameTag:
+          type: string
+          description: "A short, unique tag to identify the plugin easily"
         version:
           type: string
           description: "Version of the plugin, following semantic versioning"
@@ -70,6 +76,8 @@ components:
           description: "List of URLs for additional images"
       required:
         - id
+        - title
+        - nameTag
         - version
         - executableFile
         - author
